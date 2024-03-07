@@ -9,6 +9,10 @@ let pokeNav = document.getElementsByClassName("nav");
 const pokeSearchInput = document.getElementById("poke-search-input");
 console.log(pokeSearchInput);
 const datalistOptions = document.getElementById("datalistOptions");
+
+// Poke Dispaly
+let singlePokemonDislay = document.getElementById("single-display");
+
 // const options = datalistOptions.options;
 // console.log(options);
 
