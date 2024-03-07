@@ -1,1 +1,1 @@
-# pokepedia
+# PokePedia
