@@ -12,6 +12,7 @@ const datalistOptions = document.getElementById("datalistOptions");
 
 // Poke Dispaly
 let singlePokemonDislay = document.getElementById("single-display");
+let singlePokemonImageDisplay = document.getElementById("single-display-image");
 
 // const options = datalistOptions.options;
 // console.log(options);
@@ -87,8 +88,24 @@ pokeSearchInput.addEventListener("keypress", async (event) => {
       pokemonNamesLowercase.forEach((name, index) => {
         if (pokeEntered == name) {
           name = name.charAt(0).toUpperCase() + name.slice(1);
+          if (name.includes("-")) {
+            name = name
+              .split("-")
+              .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+              .join(" ");
+          }
           console.log(`${name} # ${index}`);
           singlePokemonDislay.innerHTML = name;
+          singlePokemonImageDisplay.innerHTML = "";
+          const pokemonDisplayImg = document.createElement("img");
+          pokemonDisplayImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+            index + 1
+          }.png`;
+          pokemonDisplayImg.style.height = "500px";
+          pokemonDisplayImg.style.width = "500px";
+          pokemonDisplayImg.className = "d-block mx-lg-auto img-fluid";
+          pokemonDisplayImg.style.padding = "10px";
+          singlePokemonImageDisplay.appendChild(pokemonDisplayImg);
         }
       });
     } catch (error) {
