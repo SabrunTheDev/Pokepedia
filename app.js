@@ -11,8 +11,12 @@ console.log(pokeSearchInput);
 const datalistOptions = document.getElementById("datalistOptions");
 
 // Poke Dispaly
-let singlePokemonDislay = document.getElementById("single-display");
-let singlePokemonImageDisplay = document.getElementById("single-display-image");
+const singlePokemonDislay = document.getElementById("single-display");
+const singlePokemonImageDisplay = document.getElementById(
+  "single-display-image"
+);
+const singlePokemonDislayPara = document.querySelector(".lead");
+singlePokemonDislayPara.id = "species-paragraph";
 
 // const options = datalistOptions.options;
 // console.log(options);
@@ -98,14 +102,87 @@ pokeSearchInput.addEventListener("keypress", async (event) => {
           singlePokemonDislay.innerHTML = name;
           singlePokemonImageDisplay.innerHTML = "";
           const pokemonDisplayImg = document.createElement("img");
-          pokemonDisplayImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-            index + 1
-          }.png`;
+          if (index > 1025) {
+            pokemonDisplayImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+              index + 8976
+            }.png`;
+          } else {
+            pokemonDisplayImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+              index + 1
+            }.png`;
+          }
           pokemonDisplayImg.style.height = "500px";
           pokemonDisplayImg.style.width = "500px";
           pokemonDisplayImg.className = "d-block mx-lg-auto img-fluid";
           pokemonDisplayImg.style.padding = "10px";
           singlePokemonImageDisplay.appendChild(pokemonDisplayImg);
+
+          const fetchPokemonData = async () => {
+            if (index > 1025) {
+              pokeResponse = await fetch(
+                `${pokemonUrl}pokemon/${index + 8976}`
+              );
+            } else {
+              pokeResponse = await fetch(`${pokemonUrl}pokemon/${index + 1}`);
+            }
+
+            if (!pokeResponse.ok) {
+              throw new Error("Failed to fetch Pokemon");
+            }
+
+            //   console.log(pokeResponse);
+            const pokeData = await pokeResponse.json();
+            console.log(pokeData);
+          };
+
+          fetchPokemonData();
+
+          const nameOriginal = name
+            .split(" ")
+            .map((part) => part.toLowerCase());
+          console.log(nameOriginal);
+
+          const fetchPokemonSpeciesData = async () => {
+            const pokeSpeciesResponse = await fetch(
+              `${pokemonUrl}pokemon-species/${nameOriginal[0]}`
+            );
+            if (!pokeSpeciesResponse.ok) {
+              throw new Error("Failed to fetch Pokemon");
+            }
+            const pokeSpeciesData = await pokeSpeciesResponse.json();
+            console.log(pokeSpeciesData);
+            const pokeFormText = pokeSpeciesData.flavor_text_entries;
+            console.log(pokeFormText[1].language.name);
+
+            let englishTextFound = false;
+
+            pokeFormText.forEach((text, index) => {
+              const isItEnglish = pokeFormText.filter(
+                (text) => text.language.name == "en"
+              );
+
+              if (isItEnglish.length > 0 && !englishTextFound) {
+                const randomText = Math.floor(
+                  Math.random() * isItEnglish.length
+                );
+                randomSelectedText = isItEnglish[randomText];
+                console.log(randomSelectedText);
+
+                if (randomSelectedText.flavor_text.includes("\f")) {
+                  singlePokemonDislayPara.innerHTML =
+                    randomSelectedText.flavor_text =
+                      randomSelectedText.flavor_text.split("\f").join(" ");
+                } else {
+                  singlePokemonDislayPara.innerHTML =
+                    randomSelectedText.flavor_text;
+                }
+
+                englishTextFound = true;
+              }
+            });
+          };
+
+          fetchPokemonSpeciesData();
         }
       });
     } catch (error) {
