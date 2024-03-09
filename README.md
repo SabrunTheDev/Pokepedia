@@ -10,7 +10,7 @@ This project utilizes JavaScript to interact with the [PokéAPI](https://pokeapi
 
 - **Pokémon Search:** Use the search bar to find information about your favorite Pokémon.
 - **Dynamic Display:** The application dynamically displays the selected Pokémon's image and species details.
-- **Random Pokémon Facts:** Learn interesting facts about the Pokémon species through randomly selected flavor text.
+- **Random Pokémon Facts:** Learn interesting facts about the Pokémon species through randomly selected flavor text. Resubmitting the same Pokémon will return a different, randomized fact.
 
 ## Usage
 
