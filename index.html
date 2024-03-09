@@ -15,7 +15,8 @@
         crossorigin="anonymous"></script>
 
     <!-- Scripts -->
-    <script defer src="app.js"></script>
+    <script defer type="text/javascript" src="app.js"></script>
+    <script defer type="module" src="getspecies.js"></script>
 </head>
 
 <body>
@@ -25,6 +26,7 @@
         <div class="container">
             <header class="d-flex justify-content-center py-3">
                 <ul class="nav nav-pills">
+
                 </ul>
             </header>
         </div>
@@ -45,24 +47,29 @@
     <section id="singledisplay">
         <div class="container col-xxl-8 px-4 py-5">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                <div class="col-10 col-sm-8 col-lg-6">
-                    <!-- <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
-                        width="700" height="500" loading="lazy"> -->
+                <div class="col-10 col-sm-8 col-lg-6 align-items-center" id="single-display-image">
+                    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWx0dDdnYjhyMGtpa3ZuY2p6cWo5ZWo2eWJtMHo2ZmVlbWpwdGg0aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DRfu7BT8ZK1uo/giphy.gif"
+                        class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500"
+                        loading="lazy">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 mx-auto text-center" id="poke-info">
                     <h1 id="single-display" class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Who's that Pokemon?
                     </h1>
                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                         ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button> -->
-                    </div>
+                    <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+                    </div> -->
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="container refresh">
+        <button type="button" class="btn btn-outline-dark">Refresh</button>
+    </div>
 
 
 </body>
