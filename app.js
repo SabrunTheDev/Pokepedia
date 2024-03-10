@@ -110,10 +110,17 @@ const pokeSearch = async () => {
             singlePokemonDislay.innerHTML = name;
             singlePokemonImageDisplay.innerHTML = "";
             const pokemonDisplayImg = document.createElement("img");
-            if (index > 1025) {
+
+            console.log(`Index: ${index}, Expected Index: ${10160 - 8976}`);
+
+            if ((index > 1025) & (index != 1184)) {
               pokemonDisplayImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                 index + 8976
               }.png`;
+            } else if (index === 10160 - 8976) {
+              pokemonDisplayImg.src = `https://marriland.com/wp-content/plugins/marriland-core/images/pokemon/sprites/home/full/pikachu-world-cap.png`;
+            } else if (index === 25 - 1) {
+              pokemonDisplayImg.src = `https://www.twitch.guru/pokemon/images/animated/025.gif`;
             } else {
               pokemonDisplayImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                 index + 1
