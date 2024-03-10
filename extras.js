@@ -5,3 +5,10 @@ insertPokepediaBall.rel = "icon";
 insertPokepediaBall.type = "image/x-icon";
 insertPokepediaBall.href = "./assets/pokepedia-ball.png";
 pokeHead.appendChild(insertPokepediaBall);
+
+const refreshPokepedia = document.querySelector("#refresh-button");
+console.log(refreshPokepedia);
+
+refreshPokepedia.addEventListener("click", async (event) => {
+  location.reload();
+});
