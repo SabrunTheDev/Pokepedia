@@ -6,6 +6,9 @@ insertPokepediaBall.type = "image/x-icon";
 insertPokepediaBall.href = "./assets/pokepedia-ball.png";
 pokeHead.appendChild(insertPokepediaBall);
 
+const bodyPokepedia = document.querySelector("body");
+bodyPokepedia.className = "text-bg-dark p-3";
+
 const refreshPokepedia = document.querySelector("#refresh-button");
 console.log(refreshPokepedia);
 
