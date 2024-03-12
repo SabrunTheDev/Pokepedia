@@ -7,3 +7,7 @@
   display: flex;
   justify-content: center;
 }
+
+#refresh-button {
+  color: white;
+}
