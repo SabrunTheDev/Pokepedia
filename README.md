@@ -4,7 +4,7 @@ Welcome to Poképedia, a web application that allows you to search and learn abo
 
 ## Overview
 
-This project utilizes JavaScript to interact with the [PokéAPI](https://pokeapi.co/) to fetch information about Pokémon. It features a user-friendly interface where you can search for Pokémon by name and get detailed information about them, including images and species details.
+This project utilizes JavaScript to interact with the [PokéAPI](https://pokeapi.co/) to fetch information about Pokémon. It features a user-friendly interface where you can search for Pokémon by name and get detailed information about them, including images and species details. (Search for Pikachu 😀)
 
 ## Features
 
