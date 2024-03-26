@@ -1,6 +1,6 @@
 # Poképedia
 
-Welcome to Poképedia, a web application that allows you to search and learn about various Pokémon!
+Welcome to Poképedia, a web application that allows you to search and learn random facts about various Pokémon!
 
 ## Overview
 
