@@ -15,7 +15,7 @@ This project utilizes JavaScript to interact with the [PokéAPI](https://pokeapi
 ## Usage
 
 - Type the name of a Pokémon in the search bar and press Enter to get detailed information.
-- Explore different Pokémon species and refresh the page to discover new ones.
+- Explore different Pokémon species and `ENTER` the Pokémon again for different information.
 
 ## JavaScript Code Summary
 
